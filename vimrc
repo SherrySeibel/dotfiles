@@ -118,5 +118,24 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
+" ================ Editing ===========================
+" Rename a file in the buffer
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+endfunction
+
+map <leader>n :call RenameFile()<cr>
+
+" Reindent file and return to current line
+map <leader>i mmgg=G`m<cr>
+
+" delete ruby comments
+nmap <leader>c :%s/^\s*#.*$//g<CR>:%s/\(\n\)\n\+/\1/g<CR>:nohl<CR>gg"
+
 " ================ Custom Settings ========================
 so ~/.yadr/vim/settings.vim
