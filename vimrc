@@ -75,7 +75,13 @@ filetype indent on
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
 
-set linebreak    "Wrap lines at convenient points
+" Wrap lines at convenient points
+set linebreak
+
+" j and k move through wrapped lines
+nmap j gj
+nmap k gk
+
 
 " ================ Folds ============================
 
