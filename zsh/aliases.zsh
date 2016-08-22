@@ -210,3 +210,22 @@ alias dbmu='spring rake db:migrate:up'
 
 # Homebrew
 alias brewu='brew update  && brew upgrade --all && brew cleanup && brew prune && brew doctor'
+
+# For creating a new session
+tnew_session(){
+ # To avoid 'unset $TMUX to force' error
+ TMUX= tmux new-session -d -s $1
+  tmux switch-client -t $1
+ }
+
+# Aliases
+alias tns='tnew_session'
+alias tls='tmux list-session'
+alias tlw='tmux list-window'
+alias tsw='tmux switch -t '
+alias tlc='tmux list-command'
+alias tat='tmux attach -t'
+alias trs='tmux rename-session -t'
+
+# Killing
+alias tks='tmux kill-session -t'
