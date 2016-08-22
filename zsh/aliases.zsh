@@ -216,6 +216,7 @@ tnew_session(){
  # To avoid 'unset $TMUX to force' error
  TMUX= tmux new-session -d -s $1
   tmux switch-client -t $1
+  tmux attach -t $1
  }
 
 # Aliases
