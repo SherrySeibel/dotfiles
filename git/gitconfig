@@ -125,3 +125,6 @@
   enabled = true
 [include]
   path = .gitconfig.user
+[user]
+	email = sherry.seibel@gmail.com
+	name = Sherry Seibel
