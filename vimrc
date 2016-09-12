@@ -127,6 +127,7 @@ function! RenameFile()
     exec ':saveas ' . new_name
     exec ':silent !rm ' . old_name
     redraw!
+  endif
 endfunction
 
 map <leader>n :call RenameFile()<cr>
